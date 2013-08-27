@@ -25,6 +25,7 @@ namespace WhoShouldIPlay
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+            #region list addings
             MarksmanList.Add("Ashe");
             MarksmanList.Add("Caitlyn");
             MarksmanList.Add("Corki");
@@ -323,6 +324,7 @@ namespace WhoShouldIPlay
             FighterList.Add("Wukong");
             FighterList.Add("Xin Zhao");
             FighterList.Add("Yorick");
+            #endregion
         }
 
         // Load data for the ViewModel Items
@@ -351,216 +353,138 @@ namespace WhoShouldIPlay
             
             if (Marksman.IsChecked == true && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(MarksmanList.Count);
-                tempname = (string)MarksmanList[r];
-                ChampName.Text = tempname;
+                oneCombo(MarksmanList);
             }
             else if(Marksman.IsChecked == false && Mid.IsChecked == true && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(MidList.Count);
-                tempname = (string)MidList[r];
-                ChampName.Text = tempname;
+                oneCombo(MidList);
             }
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(TopList.Count);
-                tempname = (string)TopList[r];
-                ChampName.Text = tempname;
+                oneCombo(TopList);
             }
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == true && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(SupportList.Count);
-                tempname = (string)SupportList[r];
-                ChampName.Text = tempname;
+                oneCombo(SupportList);
             }
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(TankList.Count);
-                tempname = (string)TankList[r];
-                ChampName.Text = tempname;
+                oneCombo(TankList);
             }
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == true && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(JungleList.Count);
-                tempname = (string)JungleList[r];
-                ChampName.Text = tempname;
+                oneCombo(JungleList);
             }
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                string tempname = "";
-                int r = rand.Next(APList.Count);
-                tempname = (string)APList[r];
-                ChampName.Text = tempname;
+                oneCombo(APList);
             }
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == true)
             {
-                string tempname = "";
-                int r = rand.Next(FighterList.Count);
-                tempname = (string)FighterList[r];
-                ChampName.Text = tempname;
+                oneCombo(FighterList);
             }
                 // ap and mid checked
             else if (Marksman.IsChecked == false && Mid.IsChecked == true && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                var result = MidList.Intersect(APList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(APList, MidList);
             }
                 //mid fighter
             else if (Marksman.IsChecked == false && Mid.IsChecked == true && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == true)
             {
-                var result = MidList.Intersect(FighterList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(MidList, FighterList);
             }
             //mid fighter
             else if (Marksman.IsChecked == false && Mid.IsChecked == true && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == true)
             {
-                var result = MidList.Intersect(FighterList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(MidList, FighterList);
             }
             //top fighter
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == true)
             {
-                var result = TopList.Intersect(FighterList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(TopList, FighterList);
             }
             //top AP
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                var result = TopList.Intersect(APList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(TopList, APList);
             }
             //Support Tank
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == true && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                var result = SupportList.Intersect(TankList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(SupportList, TankList);
             }
             //top tank
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                var result = TopList.Intersect(TankList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(TopList, TankList);
+            }
+            //ap tank
+            else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
+            {
+                twoCombo(APList, TankList);
             }
             //top marksman
             else if (Marksman.IsChecked == true && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                var result = TopList.Intersect(MarksmanList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(TopList, MarksmanList);
             }
             //jungle tank
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == true && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                var result = TankList.Intersect(JungleList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(JungleList, TankList);
+            }
+            //fighter tank
+            else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == true)
+            {
+                twoCombo(FighterList, TankList);
             }
             //marksman mid
             else if (Marksman.IsChecked == true && Mid.IsChecked == true && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == false)
             {
-                var result = MarksmanList.Intersect(MidList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(MarksmanList, MidList);
             }
             //Support AP
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == true && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                var result = SupportList.Intersect(APList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(SupportList, APList);
+            }
+            //fighter AP
+            else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == true)
+            {
+                twoCombo(FighterList, APList);
+            }
+                //support jungle
+            else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == true && Tank.IsChecked == false && Jungle.IsChecked == true && AP.IsChecked == false && Fighter.IsChecked == false)
+            {
+                twoCombo(SupportList, JungleList);
+            
             }
             //jungle AP
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == false && Jungle.IsChecked == true && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                var result = JungleList.Intersect(APList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                twoCombo(JungleList, APList);
             }
             //top tank AP
             else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                var result = TopList.Intersect(APList).Intersect(TankList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                threeCombo(TopList, TankList, APList);
             }
            
             //mid tank AP
             else if (Marksman.IsChecked == false && Mid.IsChecked == true && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == true && Fighter.IsChecked == false)
             {
-                var result = TopList.Intersect(APList).Intersect(TankList);
-                List<string> temp = new List<string>();
-                temp = result.ToList();
-                string tempname = "";
-                int r = rand.Next(temp.Count);
-                tempname = (string)temp[r];
-                ChampName.Text = tempname;
+                threeCombo(MidList, TankList, APList);
             }
-       
+            //jungle tank AP
+            else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == false && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == true && AP.IsChecked == true && Fighter.IsChecked == false)
+            {
+                threeCombo(JungleList, TankList, APList);
+            }
+            //top tank bruiser
+            else if (Marksman.IsChecked == false && Mid.IsChecked == false && Top.IsChecked == true && Support.IsChecked == false && Tank.IsChecked == true && Jungle.IsChecked == false && AP.IsChecked == false && Fighter.IsChecked == true)
+            {
+                threeCombo(TopList, TankList, FighterList);
+            }
             else
             {
                 MessageBox.Show("No results! Please check different boxes");
@@ -568,9 +492,35 @@ namespace WhoShouldIPlay
            
         }
 
+        private void twoCombo(List<string> one, List<string> two)
+        {
+            var result = one.Intersect(two);
+            List<string> temp = new List<string>();
+            temp = result.ToList();
+            string tempname = "";
+            int r = rand.Next(temp.Count);
+            tempname = (string)temp[r];
+            ChampName.Text = tempname;
+        }
 
-      
+        private void threeCombo(List<string> one, List<string> two, List<string> three)
+        {
+            var result = one.Intersect(two).Intersect(three);
+            List<string> temp = new List<string>();
+            temp = result.ToList();
+            string tempname = "";
+            int r = rand.Next(temp.Count);
+            tempname = (string)temp[r];
+            ChampName.Text = tempname;
+        }
 
+        private void oneCombo(List<string> one)
+        {
+            string tempname = "";
+            int r = rand.Next(one.Count);
+            tempname = (string)one[r];
+            ChampName.Text = tempname;
+        }
      
        
 
